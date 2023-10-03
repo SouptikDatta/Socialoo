@@ -1,0 +1,126 @@
+@import "../../style.scss";
+$colors: (
+  fill: #a972cb,
+  pulse: #ef6eae, 
+  close: #ff7f82, 
+  raise: #ffa260, 
+  up: #e4cb58, 
+  slide: #8fc866, 
+  offset: #19bc8b
+);
+
+.rightBar{
+    @include themify($themes){
+        flex: 4;
+        position : sticky;
+        top: 70px;
+        height: calc(100vh - 70px);
+        overflow: scroll;
+        background-color: themed("bgSoft");
+
+        @include mobile{
+            display: none;
+        }
+        @include tablet{
+           display: none;
+        }
+
+        &::-webkit-scrollbar{
+        display: none;
+        }
+
+        .container{
+            padding : 20px;
+
+            .item{
+                -webkit-box-shadow: 0px 0px 59px 10px rgba(255,182,193,0.5);
+                -moz-box-shadow: 0px 0px 59px 10px rgba(255,182,193,0.5);
+                box-shadow: 0px 0px 59px 10px rgba(255,182,193,0.5);
+                padding: 15px;
+                margin-bottom: 15px;
+                background-color: themed("bg");
+                border-radius: 15px;
+
+                span{
+                    color: grey;
+                }
+
+                .user{
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin : 15px 0px;
+
+                    .userInfo{
+                        display: flex;
+                        align-items: center;
+                        gap: 15px;
+                        position: relative;
+
+                        img{
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+
+                        .online{
+                            width : 12px;
+                            height: 12px;
+                            border-radius: 50%;
+                            background-color: limegreen;
+                            position:absolute;
+                            top : 0;
+                            left: 30px;
+                        }
+                        p{
+                            color: themed("textColorSoft");
+                        }
+
+                        span{
+                            font-weight: 500;
+                            color: themed("textColor");
+                            padding : 3px;
+                        }
+
+                    }
+
+                    .buttons{
+                        display: flex;
+                        align-items: center;
+                        gap: 20px;
+                        
+                        button{
+                            font-size: 16px;
+                            border: none;
+                            padding: 5px 10px;
+                            color: white;
+                            cursor: pointer;
+                            border-radius: 20rem;
+
+                            &:first-child {
+                                padding: .4rem 1.0rem;
+                                transition-duration: 0.4s;
+                                background-color:#ff6ab5;
+                            }                                
+                            &:first-child:hover {
+                                background-color: #00f7ff; /* Green */
+                                color: rgb(0, 0, 0);
+                            }
+                            
+                            &:last-child {
+                                padding: .4rem 1.0rem;
+                                background-color: #ff0000;
+                            }
+                            &:last-child:hover {
+                                background-color: #37ff00; /* Green */
+                                color: rgb(0, 0, 0);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
